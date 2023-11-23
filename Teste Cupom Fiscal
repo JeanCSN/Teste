@@ -1,0 +1,29 @@
+produtos = { 123: 'Camisa Estampada',
+             124: 'Camisa social manga longa',
+             125: 'Calça jeans'
+}
+
+venda =  [ (123, 3, 25.99),
+           (124, 2, 79.99),
+           (125, 1, 99.99)]     
+
+item = 0
+valor_total = 0
+print('-' * 46)
+print('C U P O M  F I S C A L'.center(46,'-'))
+print('ITEM CODIGO DESCRIÇÃO   QTD   VALOR UN   TOTAL')
+print('-' * 46 )
+
+for i in range(0,len(venda)):
+    subtotal = 0 
+    item += 1
+    produto = produtos.get(venda[i][0])
+    quantidade = venda[i][1]
+    valor = venda[i][2]
+    subtotal += quantidade*valor
+    valor_total += subtotal
+    print(f'{str(item).ljust(4)} {venda[i][0]} {produto.rjust(14)}')
+    print(f'{str(quantidade).rjust(25)} UN X {str(valor).ljust(5)} {str(subtotal).rjust(9)}')
+
+print('-' * 46)
+print('TOTAL R$',str(valor_total).rjust(37))
